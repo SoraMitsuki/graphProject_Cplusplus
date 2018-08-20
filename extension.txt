@@ -1,0 +1,52 @@
+/**
+  * Partner1:
+  * Name: Jiaqi Fan
+  * PID: A12584051
+  * Partner2:
+  * Name: Xuanru Zhu
+  * PID: A91064234
+  * Date: 3/13/2017
+  * PA4
+  */
+The Problem we solved:
+We design a problem which is using the facebook database and find their mutual
+friends for the random entered 2 people on the list.
+
+How we solved it:
+We create a graph using vector based on all the friends in the file, we use
+DFS search for one level below and exhausted search for the entire one below level
+to see if they have mutual friends. If there is no mutual
+friends we print out "there are no mutual friends" if there are mutual friends
+we print them on the ternimal. If they are the same person we print "This is the same person",
+and if we cannot find the user, we print we cannot find the exact user.
+
+How we test it:
+we create a small_extension_testfile.tsv for our tests. in the small test file
+we made 1 have mutual friends with 2, 2 have mutual friends with 3, 1 have no
+mutual friends with 3, and no body have mutual friends with 4. we run the
+the program with ./extension small_extension_testfile.tsv 1 2, result is 3 4 5 6
+./extension small_extension_testfile.tsv 2 3, result is 4 5 6 7 8 9
+./extension small_extension_testfile.tsv 1 3, result is 2 4 5 6
+./extension small_extension_testfile.tsv 1 4, No mutual friends
+./extension small_extension_testfile.tsv 2 4, No mutual friends
+./extension small_extension_testfile.tsv 3 4, No mutual friends
+and all of our results are correct. we also handle the case when
+same person entered twice. we will print out a message said that
+"This is the same person". If the person is not on the list we print out error
+message which is "User (whoever entered to search) doesn't exist."
+
+how the grader run our program:
+grader should simply 'make' and there will be a executable file 'extension'
+run it as:
+1st argument is: the databse file for exmaple small_extension_testfile.tsv
+2nd argument is: the first person as a int
+3rd argument is: the second person as a int
+./extension small_extension_testfile.tsv 1 2
+for small_extension_testfile please choose user from 1 to 4
+for facebook_1000.txt please choose user from 0 to 999
+for facebook_1000.txt please choose user from 0 to 1999
+for facebook_1000.txt please choose user from 0 to 14947
+
+link to find more database:
+In addition to the small test file we provided, please use facebook dataset at
+/home/linux/ieng6/cs100f/public/pa4/SocialNetworks directory
